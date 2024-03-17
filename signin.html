@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // SignIn Form Validation
+    $('#signinForm').submit(function(e) {
+        e.preventDefault();
+        var username = $('#signinUsername').val();
+        var password = $('#signinPassword').val();
+
+        if(username.trim() === '' || password.trim() === '') {
+            alert('Please enter both username and password.');
+            return;
+        }
+        // Additional validations for SignIn can be added here
+        
+        // If all validations pass, submit the form
+        this.submit();
+    });
+
+    // Redirect to SignUp page
+    $('#signupButton').click(function() {
+        window.location.href = "signup.html";
+    });
+});
+</script>
+</head>
+<body>
+
+<!-- SignIn Form -->
+<form id="signinForm">
+    <h2>SignIn</h2>
+    <div class="form-group">
+        <input type="text" id="signinUsername" placeholder="Username">
+    </div>
+    <div class="form-group">
+        <input type="password" id="signinPassword" placeholder="Password">
+    </div>
+    <button type="submit">Sign In</button>
+    <button type="button" id="signupButton">Sign Up</button>
+</form>
+
+</body>
+</html>
